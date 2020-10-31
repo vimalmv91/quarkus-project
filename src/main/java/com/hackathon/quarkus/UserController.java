@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 import com.hackathon.quarkus.entity.User;
 import com.hackathon.quarkus.service.UserServiceImpl;
 
-@Path("/")
+@Path("/user")
 @Consumes("application/json")
 @Produces("application/json")
 public class UserController {
@@ -33,7 +33,7 @@ public class UserController {
     }
     
     @GET
-    @Path("/users")
+    @Path("/getUserDetails")
     public List<User> fetchAllUsers() {
         return userServiceImpl.fetchAllUsers();
     }
