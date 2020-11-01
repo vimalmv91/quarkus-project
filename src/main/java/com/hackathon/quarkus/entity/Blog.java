@@ -14,7 +14,6 @@ public class Blog extends PanacheMongoEntityBase{
 	private String content;
 	private String heading;
 	private String lastUpdate;
-	private String author;
 	
 	
 	public ObjectId getBlogId() {
@@ -40,12 +39,6 @@ public class Blog extends PanacheMongoEntityBase{
 	}
 	public void setLastUpdate(String lastUpdate) {
 		this.lastUpdate = lastUpdate;
-	}
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
 	}
 	
 }

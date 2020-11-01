@@ -42,7 +42,7 @@ public class UserController {
     @Path("/registerUser")
     public Response create(User user) {
         user.persist();
-        return Response.status(201).build();
+        return Response.status(200).build();
     }
     
     @POST

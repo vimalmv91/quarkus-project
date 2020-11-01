@@ -13,7 +13,6 @@ public class BlogVO implements Serializable{
 	private String body;
 	private String header;
 	private String timestamp;
-	private String author;
 	public String getId() {
 		return id;
 	}
@@ -37,11 +36,5 @@ public class BlogVO implements Serializable{
 	}
 	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
-	}
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
 	}
 }
