@@ -39,21 +39,21 @@ public class BlogController {
     
     @POST
     @Path("/editBlog")
-	BlogVO editBlog(BlogVO blogVO) {
+	public BlogVO editBlog(BlogVO blogVO) {
 		LOG.debug("Edit Blog");
 		return blogServiceImpl.editBlog(blogVO);
 	}
 	
     @POST
     @Path("/saveBlog")
-	BlogVO saveBlog(BlogVO blogVO) {
+    public BlogVO saveBlog(BlogVO blogVO) {
 		LOG.debug("Save Blog");
 		return blogServiceImpl.saveBlog(blogVO);
 	}
 	
     @POST
     @Path("/deleteBlog")
-	Boolean deleteBlog(BlogVO blog) {
+    public Boolean deleteBlog(BlogVO blog) {
 		LOG.debug("Delete Blog");
 		return blogServiceImpl.deleteBlog(blog);
 	}

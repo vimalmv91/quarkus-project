@@ -6,6 +6,8 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
+import org.bson.types.ObjectId;
+
 import com.hackathon.quarkus.entity.Blog;
 import com.hackathon.quarkus.repository.BlogRepository;
 import com.hackathon.quarkus.vo.BlogVO;
@@ -29,7 +31,7 @@ public class BlogServiceImpl {
 	
 	private BlogVO setBlogVO(Blog blog) {
 		BlogVO blogVO = new BlogVO();
-		blogVO.setAuthor(blog.getAuthor());
+		//blogVO.setAuthor(blog.getAuthor());
 		if(null != blog.getBlogId()){
 			blogVO.setId(blog.getBlogId().toString());
 		}
@@ -41,7 +43,7 @@ public class BlogServiceImpl {
 	
 	private Blog setBlog(BlogVO blogVO) {
 		Blog blog = new Blog();
-		blog.setAuthor(blogVO.getAuthor());
+		//blog.setAuthor(blogVO.getAuthor());
 		blog.setContent(blogVO.getBody());
 		blog.setHeading(blogVO.getHeader());
 		blog.setLastUpdate(blogVO.getTimestamp());
@@ -54,9 +56,10 @@ public class BlogServiceImpl {
 		return setBlogVO(blog);
 	}
 
-	public Boolean deleteBlog(BlogVO blog) {
+	public Boolean deleteBlog(BlogVO blogVO) {
 		try {
-			Blog.deleteById(blog.getId());
+			ObjectId blogId=new ObjectId(blogVO.getId());
+			Blog.deleteById(blogId);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -64,7 +67,8 @@ public class BlogServiceImpl {
 	}
 
 	public BlogVO editBlog(BlogVO blogVO) {
-		Blog blog = Blog.findById(blogVO.getId());
+		ObjectId blogId=new ObjectId(blogVO.getId());
+		Blog blog = Blog.findById(blogId);
 		if(null!= blog){
 			blog.setContent(blogVO.getBody());
 			blog.setHeading(blogVO.getHeader());
